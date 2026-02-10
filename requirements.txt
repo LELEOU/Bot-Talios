@@ -1,0 +1,107 @@
+# ====================================================================
+# 🚀 Bot Discord Modular - Dependências de Produção
+# ====================================================================
+# Versão: 3.0.0
+# Python: >=3.11
+# Última atualização: 2025-10-02
+
+# ====================================================================
+# CORE - Discord Framework
+# ====================================================================
+# Discord.py - Framework principal (ATUALIZADO)
+discord.py[voice]>=2.6.3
+
+# ====================================================================
+# ASYNCIO - Operações Assíncronas
+# ====================================================================
+aiohttp>=3.10.0        # HTTP async client/server
+aiofiles>=24.1.0       # Async file I/O
+aiosqlite>=0.21.0      # SQLite async (ATUALIZADO)
+
+# ====================================================================
+# PERFORMANCE - Otimizações
+# ====================================================================
+# uvloop: Event loop 30-40% mais rápido (apenas Linux/Mac)
+uvloop>=0.21.0; platform_system != 'Windows'
+
+# orjson: JSON 2-3x mais rápido que json padrão (NOVO)
+orjson>=3.10.0
+
+# ciso8601: Date parsing ultra rápido (NOVO)
+ciso8601>=2.3.0
+
+# ====================================================================
+# MUSIC & VOICE - Sistema de Música
+# ====================================================================
+# yt-dlp: Substituição moderna do youtube-dl (ATUALIZADO)
+yt-dlp>=2024.10.7
+
+# PyNaCl: Criptografia para voz
+PyNaCl>=1.5.0
+
+# ====================================================================
+# CONFIGURATION - Configuração
+# ====================================================================
+python-dotenv>=1.0.1   # Variáveis de ambiente
+
+# ====================================================================
+# MEDIA - Processamento de Imagens
+# ====================================================================
+Pillow>=10.4.0         # Processamento de imagens (ATUALIZADO)
+
+# ====================================================================
+# UTILITIES - Utilitários
+# ====================================================================
+# Date/Time
+python-dateutil>=2.9.0  # Manipulação de datas (ATUALIZADO)
+
+# HTTP Requests
+requests>=2.32.0        # HTTP requests síncronos (ATUALIZADO)
+
+# Logging
+structlog>=24.4.0       # Logging estruturado (NOVO)
+colorama>=0.4.6         # Cores no terminal
+
+# ====================================================================
+# NOTAS:
+# ====================================================================
+# REMOVIDO (não utilizadas ou substituídas):
+# ❌ youtube-dl       -> Substituído por yt-dlp (mais rápido e mantido)
+# ❌ pydantic         -> Não está sendo usado no código
+# ❌ typing-extensions -> Python 3.11+ já inclui
+# ❌ ujson            -> Substituído por orjson (mais rápido)
+# ❌ colorlog         -> Substituído por structlog + colorama
+# ❌ psutil           -> Não está sendo usado
+# ❌ arrow            -> python-dateutil já resolve
+# ❌ cachetools       -> Não está sendo usado
+# ❌ validators       -> Não está sendo usado
+# ❌ regex            -> re do Python é suficiente
+
+# PARA DESENVOLVIMENTO:
+# Use: pip install -e ".[dev]" para instalar deps de desenvolvimento
+# Isso instala: ruff, pyright, pytest, nox, pre-commit, etc.
+
+# PARA DASHBOARD (futuro):
+# Use: pip install -e ".[dashboard]"
+# Isso instala: fastapi, uvicorn, websockets, redis
+
+# Sistema de emoji
+emoji>=2.8.0
+
+# Backup e compressão
+zipfile36>=0.1.3
+
+# FFmpeg wrapper (para música)
+ffmpeg-python>=0.2.0
+
+# Opcional: Logging avançado (remova # se necessário)
+# colorlog>=6.7.0
+# structlog>=23.1.0
+
+# Opcional: Performance e monitoring (remova # se necessário)
+# psutil>=5.9.0
+# prometheus-client>=0.17.0
+
+# Opcional: Imagem processing (remova # se necessário)
+# Pillow>=10.0.0
+# wand>=0.6.0

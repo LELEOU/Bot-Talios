@@ -1,0 +1,360 @@
+# ====================================================================
+# 🚀 Bot Discord Modular - Python Version
+# Configuração Moderna do Projeto
+# ====================================================================
+
+[build-system]
+requires = ["setuptools>=70.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "discord-bot-modular"
+version = "3.0.0"
+description = "Sistema avançado de containers e comandos modulares para Discord"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "Bot Development Team", email = "dev@example.com"}
+]
+keywords = ["discord", "bot", "modular", "containers", "slash-commands"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Communications :: Chat",
+]
+
+dependencies = [
+    # Discord.py - Framework principal
+    "discord.py[voice]>=2.6.3",
+    
+    # Async utilities
+    "aiohttp>=3.10.0",
+    "aiofiles>=24.1.0",
+    "aiosqlite>=0.21.0",
+    
+    # Configuration
+    "python-dotenv>=1.0.1",
+    
+    # Performance (uvloop apenas para Linux/Mac)
+    "uvloop>=0.21.0; platform_system != 'Windows'",
+    "orjson>=3.10.0",
+    "ciso8601>=2.3.0",
+    
+    # Music & Voice
+    "yt-dlp>=2024.10.7",
+    "PyNaCl>=1.5.0",
+    
+    # Image processing
+    "Pillow>=10.4.0",
+    
+    # Date/Time utilities
+    "python-dateutil>=2.9.0",
+    
+    # Logging
+    "structlog>=24.4.0",
+    "colorama>=0.4.6",
+    
+    # HTTP requests
+    "requests>=2.32.0",
+]
+
+[project.optional-dependencies]
+# Dependências de desenvolvimento
+dev = [
+    # Linting & Formatting
+    "ruff>=0.9.0",
+    
+    # Type checking
+    "pyright>=1.1.400",
+    "mypy>=1.13.0",
+    
+    # Testing
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.26.0",
+    "pytest-cov>=6.0.0",
+    "coverage[toml]>=7.6.0",
+    
+    # Task automation
+    "nox>=2024.10.9",
+    
+    # Git hooks
+    "pre-commit>=4.0.0",
+    
+    # Documentation
+    "sphinx>=8.1.0",
+    "sphinx-rtd-theme>=3.0.0",
+]
+
+# Dashboard integration (futuro)
+dashboard = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "websockets>=13.1",
+    "redis>=5.2.0",
+]
+
+# Monitoring (opcional)
+monitoring = [
+    "sentry-sdk>=2.17.0",
+    "prometheus-client>=0.21.0",
+]
+
+# Tudo junto
+all = [
+    "discord-bot-modular[dev,dashboard,monitoring]",
+]
+
+[project.urls]
+Homepage = "https://github.com/seu-usuario/discord-bot-modular"
+Documentation = "https://github.com/seu-usuario/discord-bot-modular/wiki"
+Repository = "https://github.com/seu-usuario/discord-bot-modular"
+Issues = "https://github.com/seu-usuario/discord-bot-modular/issues"
+
+[project.scripts]
+bot = "main:main"
+
+# ====================================================================
+# 🛠️ RUFF - Linter & Formatter
+# ====================================================================
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = [
+    "__pycache__",
+    "*.pyc",
+    ".git",
+    ".nox",
+    ".pytest_cache",
+    "build",
+    "dist",
+    "*.egg-info",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",     # pycodestyle errors
+    "W",     # pycodestyle warnings
+    "F",     # pyflakes
+    "I",     # isort (import sorting)
+    "N",     # pep8-naming
+    "UP",    # pyupgrade
+    "ANN",   # flake8-annotations
+    "ASYNC", # flake8-async
+    "B",     # flake8-bugbear
+    "A",     # flake8-builtins
+    "C4",    # flake8-comprehensions
+    "DTZ",   # flake8-datetimez
+    "ISC",   # flake8-implicit-str-concat
+    "ICN",   # flake8-import-conventions
+    "PIE",   # flake8-pie
+    "PT",    # flake8-pytest-style
+    "Q",     # flake8-quotes
+    "RSE",   # flake8-raise
+    "RET",   # flake8-return
+    "SIM",   # flake8-simplify
+    "TID",   # flake8-tidy-imports
+    "TCH",   # flake8-type-checking
+    "PTH",   # flake8-use-pathlib
+    "ERA",   # eradicate (commented code)
+    "PL",    # pylint
+    "PERF",  # perflint
+    "RUF",   # ruff-specific rules
+]
+
+ignore = [
+    "ANN101",  # missing-type-self (redundante)
+    "ANN102",  # missing-type-cls (redundante)
+    "ANN401",  # any-type (às vezes necessário)
+    "E501",    # line-too-long (formatter cuida)
+    "PLR0913", # too-many-arguments (comandos Discord precisam)
+    "PLR2004", # magic-value-comparison (constantes são OK)
+    "B008",    # function-call-in-default-argument (discord.py usa muito)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = [
+    "ANN",     # Type hints não obrigatórios em testes
+    "S101",    # assert allowed em testes
+    "PLR2004", # Magic values OK em testes
+]
+"noxfile.py" = ["ANN"]
+"setup.py" = ["ANN"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["src"]
+combine-as-imports = true
+split-on-trailing-comma = false
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "double"
+multiline-quotes = "double"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "lf"
+
+# ====================================================================
+# 🔍 PYRIGHT - Type Checker
+# ====================================================================
+[tool.pyright]
+include = ["src", "main.py"]
+exclude = [
+    "**/__pycache__",
+    "**/.git",
+    "**/node_modules",
+    ".nox",
+    ".pytest_cache",
+]
+
+typeCheckingMode = "standard"  # "strict" depois de tipar tudo
+pythonVersion = "3.11"
+pythonPlatform = "All"
+
+# Configurações de relatórios
+reportMissingTypeStubs = false
+reportMissingImports = true
+reportUnusedImport = true
+reportUnusedClass = true
+reportUnusedFunction = true
+reportUnusedVariable = true
+reportDuplicateImport = true
+reportUntypedFunctionDecorator = false  # Discord.py decorators
+reportUntypedClassDecorator = false
+reportUntypedBaseClass = false
+reportPrivateUsage = false
+
+# Após completar type hints, ativar:
+# typeCheckingMode = "strict"
+# reportMissingTypeStubs = "warning"
+
+# ====================================================================
+# 🧪 PYTEST - Testing Framework
+# ====================================================================
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+# Async support
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+# Coverage
+addopts = [
+    "-ra",                    # Show summary of all test outcomes
+    "--strict-markers",       # Markers must be registered
+    "--strict-config",        # Config errors are fatal
+    "--showlocals",           # Show local variables in tracebacks
+    "-v",                     # Verbose
+    "--tb=short",             # Short traceback format
+    "--cov=src",              # Coverage for src/
+    "--cov-report=term-missing:skip-covered",  # Show missing lines
+    "--cov-report=html",      # HTML coverage report
+    "--cov-report=xml",       # XML for CI
+]
+
+# Markers
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+    "asyncio: marks tests as async",
+]
+
+# Ignore warnings
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+]
+
+# ====================================================================
+# 📊 COVERAGE - Code Coverage
+# ====================================================================
+[tool.coverage.run]
+source = ["src"]
+branch = true
+parallel = true
+omit = [
+    "*/tests/*",
+    "*/__pycache__/*",
+    "*/site-packages/*",
+    "*/.nox/*",
+]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+skip_covered = false
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "def __str__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+
+[tool.coverage.html]
+directory = "htmlcov"
+
+# ====================================================================
+# 🔧 MYPY - Alternative Type Checker (opcional)
+# ====================================================================
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false  # true após tipar tudo
+check_untyped_defs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+module = [
+    "discord.*",
+    "aiosqlite.*",
+    "yt_dlp.*",
+]
+ignore_missing_imports = true
+
+# ====================================================================
+# 📦 SETUPTOOLS
+# ====================================================================
+[tool.setuptools]
+package-dir = {"" = "."}
+packages = ["src"]
+
+[tool.setuptools.dynamic]
+version = {attr = "src.__version__"}
+
+# ====================================================================
+# 🎨 BLACK (se preferir ao invés de ruff format)
+# ====================================================================
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+    \.git
+  | \.nox
+  | \.pytest_cache
+  | __pycache__
+  | build
+  | dist
+)/
+'''

@@ -1,0 +1,57 @@
+# EditorConfig - Padronização de código entre diferentes editores
+# https://editorconfig.org
+
+root = true
+
+# Configuração padrão para todos os arquivos
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Arquivos Python
+[*.py]
+indent_style = space
+indent_size = 4
+max_line_length = 100
+
+# Arquivos YAML (GitHub Actions, docker-compose, etc)
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+# Arquivos JSON
+[*.json]
+indent_style = space
+indent_size = 2
+
+# Arquivos TOML (pyproject.toml, etc)
+[*.toml]
+indent_style = space
+indent_size = 2
+
+# Markdown
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = off
+
+# Makefiles precisam de tabs
+[Makefile]
+indent_style = tab
+
+# Shell scripts
+[*.sh]
+indent_style = space
+indent_size = 2
+
+# Batch files (Windows)
+[*.{bat,cmd}]
+end_of_line = crlf
+
+# Arquivos de configuração do Git
+[.gitattributes]
+end_of_line = lf
+
+[.gitignore]
+end_of_line = lf

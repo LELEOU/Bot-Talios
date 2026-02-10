@@ -1,0 +1,131 @@
+# Pre-commit Hooks - Verificações automáticas antes de cada commit
+# https://pre-commit.com
+
+# Para instalar: pre-commit install
+# Para rodar manualmente: pre-commit run --all-files
+
+default_language_version:
+  python: python3.11
+
+repos:
+  # ============================================================================
+  # RUFF - Linter e Formatter Python
+  # ============================================================================
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.9.0
+    hooks:
+      # Linter
+      - id: ruff
+        name: 🔍 Ruff Linter
+        args: [--fix, --exit-non-zero-on-fix]
+      
+      # Formatter
+      - id: ruff-format
+        name: 🎨 Ruff Formatter
+
+  # ============================================================================
+  # PRE-COMMIT HOOKS PADRÃO
+  # ============================================================================
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      # Remove espaços em branco no fim das linhas
+      - id: trailing-whitespace
+        name: ✂️  Remove trailing whitespace
+      
+      # Adiciona linha em branco no fim dos arquivos
+      - id: end-of-file-fixer
+        name: 📝 Fix end of files
+      
+      # Verifica sintaxe YAML
+      - id: check-yaml
+        name: ✅ Check YAML
+        args: [--safe]
+      
+      # Verifica sintaxe JSON
+      - id: check-json
+        name: ✅ Check JSON
+      
+      # Verifica sintaxe TOML
+      - id: check-toml
+        name: ✅ Check TOML
+      
+      # Previne commits de arquivos grandes
+      - id: check-added-large-files
+        name: 🚫 Check large files
+        args: [--maxkb=1000]
+      
+      # Detecta merge conflicts
+      - id: check-merge-conflict
+        name: 🔀 Check merge conflicts
+      
+      # Previne commits diretos em main/master
+      - id: no-commit-to-branch
+        name: 🚫 No commit to main
+        args: [--branch, main, --branch, master]
+      
+      # Verifica se arquivos Python são válidos
+      - id: check-ast
+        name: ✅ Check Python AST
+      
+      # Verifica docstrings
+      - id: check-docstring-first
+        name: 📚 Check docstring first
+      
+      # Detecta credenciais hardcoded
+      - id: detect-private-key
+        name: 🔒 Detect private keys
+      
+      # Ordena requirements.txt
+      - id: requirements-txt-fixer
+        name: 📦 Sort requirements.txt
+
+  # ============================================================================
+  # PYRIGHT - Type Checker
+  # ============================================================================
+  - repo: https://github.com/RobertCraigie/pyright-python
+    rev: v1.1.400
+    hooks:
+      - id: pyright
+        name: 🔬 Pyright Type Check
+        additional_dependencies:
+          - discord.py
+          - aiosqlite
+          - python-dotenv
+
+  # ============================================================================
+  # PRETTIER - Formatter para YAML, JSON, Markdown
+  # ============================================================================
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v4.0.0-alpha.8
+    hooks:
+      - id: prettier
+        name: 💅 Prettier (YAML/JSON/MD)
+        types_or: [yaml, json, markdown]
+
+  # ============================================================================
+  # CODESPELL - Corretor ortográfico
+  # ============================================================================
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.3.0
+    hooks:
+      - id: codespell
+        name: 📝 Check spelling
+        args: [--skip, "*.pyc,*.pyo,*.git,*.nox"]
+        exclude: ^(locales/.*\.json)$  # Ignora arquivos de tradução
+
+# ============================================================================
+# CONFIGURAÇÃO CI (GitHub Actions, etc)
+# ============================================================================
+ci:
+  autofix_commit_msg: |
+    🤖 [pre-commit.ci] auto fixes from pre-commit hooks
+    
+    for more information, see https://pre-commit.ci
+  
+  autofix_prs: true
+  autoupdate_branch: ''
+  autoupdate_commit_msg: '🔧 [pre-commit.ci] pre-commit autoupdate'
+  autoupdate_schedule: weekly
+  skip: [pyright]  # Pyright é pesado, rodar apenas localmente
+  submodules: false

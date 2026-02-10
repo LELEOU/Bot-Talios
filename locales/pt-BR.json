@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "language": "pt-BR",
+    "language_name": "Português (Brasil)",
+    "version": "3.0.0",
+    "authors": ["Bot Development Team"]
+  },
+  
+  "common": {
+    "yes": "Sim",
+    "no": "Não",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "save": "Salvar",
+    "delete": "Deletar",
+    "edit": "Editar",
+    "loading": "Carregando...",
+    "success": "Sucesso!",
+    "error": "Erro!",
+    "warning": "Aviso!",
+    "info": "Informação"
+  },
+  
+  "errors": {
+    "no_permission": "❌ Você não tem permissão para usar este comando.",
+    "missing_argument": "❌ Argumento faltando: {argument}",
+    "invalid_argument": "❌ Argumento inválido: {argument}",
+    "user_not_found": "❌ Usuário não encontrado: {user}",
+    "channel_not_found": "❌ Canal não encontrado: {channel}",
+    "role_not_found": "❌ Cargo não encontrado: {role}",
+    "internal_error": "❌ Erro interno: {error}",
+    "command_on_cooldown": "⏳ Comando em cooldown. Tente novamente em {time} segundos.",
+    "bot_missing_permissions": "❌ O bot não tem permissões suficientes para executar esta ação.",
+    "member_not_found": "❌ Membro não encontrado no servidor."
+  },
+  
+  "commands": {
+    "ban": {
+      "description": "Banir um membro do servidor",
+      "user_param": "Usuário a ser banido",
+      "reason_param": "Motivo do banimento",
+      "days_param": "Dias de mensagens para deletar (0-7)",
+      "success": "✅ {user} foi banido com sucesso!",
+      "success_with_reason": "✅ {user} foi banido! Motivo: {reason}",
+      "dm_notification": "🔨 Você foi banido de **{guild}**\n**Motivo:** {reason}",
+      "confirm_title": "⚠️ Confirmar Banimento",
+      "confirm_description": "Tem certeza que deseja banir **{user}**?",
+      "cancelled": "❌ Banimento cancelado."
+    },
+    
+    "kick": {
+      "description": "Expulsar um membro do servidor",
+      "user_param": "Usuário a ser expulso",
+      "reason_param": "Motivo da expulsão",
+      "success": "✅ {user} foi expulso com sucesso!",
+      "dm_notification": "👢 Você foi expulso de **{guild}**\n**Motivo:** {reason}"
+    },
+    
+    "timeout": {
+      "description": "Castigar um membro temporariamente",
+      "user_param": "Usuário a ser castigado",
+      "duration_param": "Duração do castigo",
+      "reason_param": "Motivo do castigo",
+      "success": "⏱️ {user} foi castigado por {duration}!",
+      "dm_notification": "⏱️ Você foi castigado em **{guild}** por **{duration}**\n**Motivo:** {reason}"
+    },
+    
+    "warn": {
+      "description": "Avisar um membro",
+      "user_param": "Usuário a ser avisado",
+      "reason_param": "Motivo do aviso",
+      "success": "⚠️ {user} recebeu um aviso! Total: {count} avisos",
+      "dm_notification": "⚠️ Você recebeu um aviso em **{guild}**\n**Motivo:** {reason}\n**Total de avisos:** {count}"
+    },
+    
+    "ping": {
+      "description": "Verificar latência do bot",
+      "response": "🏓 Pong! Latência: {latency}ms"
+    },
+    
+    "help": {
+      "description": "Mostrar comandos disponíveis",
+      "title": "📚 Comandos Disponíveis",
+      "no_commands": "Nenhum comando disponível.",
+      "category": "Categoria: {category}"
+    },
+    
+    "ticket": {
+      "description": "Sistema de tickets de suporte",
+      "create": "🎫 Criar novo ticket",
+      "close": "🔒 Fechar ticket",
+      "created": "✅ Ticket criado: {channel}",
+      "closed": "🔒 Ticket fechado por {user}"
+    },
+    
+    "suggestion": {
+      "description": "Sistema de sugestões",
+      "create": "💡 Enviar sugestão",
+      "approve": "✅ Sugestão aprovada",
+      "reject": "❌ Sugestão rejeitada",
+      "submitted": "✅ Sugestão enviada com sucesso!"
+    },
+    
+    "level": {
+      "description": "Ver nível e experiência",
+      "current_level": "📊 Nível {level} | XP: {xp}/{required_xp}",
+      "rank": "🏆 Rank #{rank} no servidor"
+    },
+    
+    "welcome": {
+      "description": "Configurar mensagens de boas-vindas",
+      "setup": "Configurar boas-vindas",
+      "test": "Testar mensagem",
+      "enabled": "✅ Sistema de boas-vindas ativado!",
+      "disabled": "❌ Sistema de boas-vindas desativado."
+    }
+  },
+  
+  "modules": {
+    "moderation": "Moderação",
+    "utility": "Utilidades",
+    "fun": "Diversão",
+    "music": "Música",
+    "leveling": "Sistema de Níveis",
+    "tickets": "Tickets",
+    "suggestions": "Sugestões",
+    "welcome": "Boas-vindas",
+    "logs": "Logs"
+  },
+  
+  "permissions": {
+    "administrator": "Administrador",
+    "manage_guild": "Gerenciar Servidor",
+    "manage_roles": "Gerenciar Cargos",
+    "manage_channels": "Gerenciar Canais",
+    "kick_members": "Expulsar Membros",
+    "ban_members": "Banir Membros",
+    "manage_messages": "Gerenciar Mensagens",
+    "moderate_members": "Moderar Membros"
+  }
+}

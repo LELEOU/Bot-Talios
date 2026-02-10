@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "language": "en-US",
+    "language_name": "English (United States)",
+    "version": "3.0.0",
+    "authors": ["Bot Development Team"]
+  },
+  
+  "common": {
+    "yes": "Yes",
+    "no": "No",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "loading": "Loading...",
+    "success": "Success!",
+    "error": "Error!",
+    "warning": "Warning!",
+    "info": "Information"
+  },
+  
+  "errors": {
+    "no_permission": "❌ You don't have permission to use this command.",
+    "missing_argument": "❌ Missing argument: {argument}",
+    "invalid_argument": "❌ Invalid argument: {argument}",
+    "user_not_found": "❌ User not found: {user}",
+    "channel_not_found": "❌ Channel not found: {channel}",
+    "role_not_found": "❌ Role not found: {role}",
+    "internal_error": "❌ Internal error: {error}",
+    "command_on_cooldown": "⏳ Command on cooldown. Try again in {time} seconds.",
+    "bot_missing_permissions": "❌ The bot doesn't have sufficient permissions to perform this action.",
+    "member_not_found": "❌ Member not found in the server."
+  },
+  
+  "commands": {
+    "ban": {
+      "description": "Ban a member from the server",
+      "user_param": "User to ban",
+      "reason_param": "Ban reason",
+      "days_param": "Days of messages to delete (0-7)",
+      "success": "✅ {user} was successfully banned!",
+      "success_with_reason": "✅ {user} was banned! Reason: {reason}",
+      "dm_notification": "🔨 You were banned from **{guild}**\n**Reason:** {reason}",
+      "confirm_title": "⚠️ Confirm Ban",
+      "confirm_description": "Are you sure you want to ban **{user}**?",
+      "cancelled": "❌ Ban cancelled."
+    },
+    
+    "kick": {
+      "description": "Kick a member from the server",
+      "user_param": "User to kick",
+      "reason_param": "Kick reason",
+      "success": "✅ {user} was successfully kicked!",
+      "dm_notification": "👢 You were kicked from **{guild}**\n**Reason:** {reason}"
+    },
+    
+    "timeout": {
+      "description": "Timeout a member temporarily",
+      "user_param": "User to timeout",
+      "duration_param": "Timeout duration",
+      "reason_param": "Timeout reason",
+      "success": "⏱️ {user} was timed out for {duration}!",
+      "dm_notification": "⏱️ You were timed out in **{guild}** for **{duration}**\n**Reason:** {reason}"
+    },
+    
+    "warn": {
+      "description": "Warn a member",
+      "user_param": "User to warn",
+      "reason_param": "Warning reason",
+      "success": "⚠️ {user} received a warning! Total: {count} warnings",
+      "dm_notification": "⚠️ You received a warning in **{guild}**\n**Reason:** {reason}\n**Total warnings:** {count}"
+    },
+    
+    "ping": {
+      "description": "Check bot latency",
+      "response": "🏓 Pong! Latency: {latency}ms"
+    },
+    
+    "help": {
+      "description": "Show available commands",
+      "title": "📚 Available Commands",
+      "no_commands": "No commands available.",
+      "category": "Category: {category}"
+    },
+    
+    "ticket": {
+      "description": "Support ticket system",
+      "create": "🎫 Create new ticket",
+      "close": "🔒 Close ticket",
+      "created": "✅ Ticket created: {channel}",
+      "closed": "🔒 Ticket closed by {user}"
+    },
+    
+    "suggestion": {
+      "description": "Suggestion system",
+      "create": "💡 Submit suggestion",
+      "approve": "✅ Suggestion approved",
+      "reject": "❌ Suggestion rejected",
+      "submitted": "✅ Suggestion submitted successfully!"
+    },
+    
+    "level": {
+      "description": "View level and experience",
+      "current_level": "📊 Level {level} | XP: {xp}/{required_xp}",
+      "rank": "🏆 Rank #{rank} in server"
+    },
+    
+    "welcome": {
+      "description": "Configure welcome messages",
+      "setup": "Setup welcome",
+      "test": "Test message",
+      "enabled": "✅ Welcome system enabled!",
+      "disabled": "❌ Welcome system disabled."
+    }
+  },
+  
+  "modules": {
+    "moderation": "Moderation",
+    "utility": "Utilities",
+    "fun": "Fun",
+    "music": "Music",
+    "leveling": "Leveling System",
+    "tickets": "Tickets",
+    "suggestions": "Suggestions",
+    "welcome": "Welcome",
+    "logs": "Logs"
+  },
+  
+  "permissions": {
+    "administrator": "Administrator",
+    "manage_guild": "Manage Server",
+    "manage_roles": "Manage Roles",
+    "manage_channels": "Manage Channels",
+    "kick_members": "Kick Members",
+    "ban_members": "Ban Members",
+    "manage_messages": "Manage Messages",
+    "moderate_members": "Moderate Members"
+  }
+}

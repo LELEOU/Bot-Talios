@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "language": "es-ES",
+    "language_name": "Español (España)",
+    "version": "3.0.0",
+    "authors": ["Bot Development Team"]
+  },
+  
+  "common": {
+    "yes": "Sí",
+    "no": "No",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "loading": "Cargando...",
+    "success": "¡Éxito!",
+    "error": "¡Error!",
+    "warning": "¡Advertencia!",
+    "info": "Información"
+  },
+  
+  "errors": {
+    "no_permission": "❌ No tienes permiso para usar este comando.",
+    "missing_argument": "❌ Argumento faltante: {argument}",
+    "invalid_argument": "❌ Argumento inválido: {argument}",
+    "user_not_found": "❌ Usuario no encontrado: {user}",
+    "channel_not_found": "❌ Canal no encontrado: {channel}",
+    "role_not_found": "❌ Rol no encontrado: {role}",
+    "internal_error": "❌ Error interno: {error}",
+    "command_on_cooldown": "⏳ Comando en espera. Inténtalo de nuevo en {time} segundos.",
+    "bot_missing_permissions": "❌ El bot no tiene permisos suficientes para realizar esta acción.",
+    "member_not_found": "❌ Miembro no encontrado en el servidor."
+  },
+  
+  "commands": {
+    "ban": {
+      "description": "Banear un miembro del servidor",
+      "user_param": "Usuario a banear",
+      "reason_param": "Motivo del baneo",
+      "days_param": "Días de mensajes para eliminar (0-7)",
+      "success": "✅ ¡{user} fue baneado con éxito!",
+      "success_with_reason": "✅ ¡{user} fue baneado! Motivo: {reason}",
+      "dm_notification": "🔨 Fuiste baneado de **{guild}**\n**Motivo:** {reason}",
+      "confirm_title": "⚠️ Confirmar Baneo",
+      "confirm_description": "¿Estás seguro de que quieres banear a **{user}**?",
+      "cancelled": "❌ Baneo cancelado."
+    },
+    
+    "kick": {
+      "description": "Expulsar un miembro del servidor",
+      "user_param": "Usuario a expulsar",
+      "reason_param": "Motivo de la expulsión",
+      "success": "✅ ¡{user} fue expulsado con éxito!",
+      "dm_notification": "👢 Fuiste expulsado de **{guild}**\n**Motivo:** {reason}"
+    },
+    
+    "timeout": {
+      "description": "Castigar un miembro temporalmente",
+      "user_param": "Usuario a castigar",
+      "duration_param": "Duración del castigo",
+      "reason_param": "Motivo del castigo",
+      "success": "⏱️ ¡{user} fue castigado por {duration}!",
+      "dm_notification": "⏱️ Fuiste castigado en **{guild}** por **{duration}**\n**Motivo:** {reason}"
+    },
+    
+    "warn": {
+      "description": "Advertir a un miembro",
+      "user_param": "Usuario a advertir",
+      "reason_param": "Motivo de la advertencia",
+      "success": "⚠️ ¡{user} recibió una advertencia! Total: {count} advertencias",
+      "dm_notification": "⚠️ Recibiste una advertencia en **{guild}**\n**Motivo:** {reason}\n**Total de advertencias:** {count}"
+    },
+    
+    "ping": {
+      "description": "Verificar latencia del bot",
+      "response": "🏓 ¡Pong! Latencia: {latency}ms"
+    },
+    
+    "help": {
+      "description": "Mostrar comandos disponibles",
+      "title": "📚 Comandos Disponibles",
+      "no_commands": "No hay comandos disponibles.",
+      "category": "Categoría: {category}"
+    },
+    
+    "ticket": {
+      "description": "Sistema de tickets de soporte",
+      "create": "🎫 Crear nuevo ticket",
+      "close": "🔒 Cerrar ticket",
+      "created": "✅ Ticket creado: {channel}",
+      "closed": "🔒 Ticket cerrado por {user}"
+    },
+    
+    "suggestion": {
+      "description": "Sistema de sugerencias",
+      "create": "💡 Enviar sugerencia",
+      "approve": "✅ Sugerencia aprobada",
+      "reject": "❌ Sugerencia rechazada",
+      "submitted": "✅ ¡Sugerencia enviada con éxito!"
+    },
+    
+    "level": {
+      "description": "Ver nivel y experiencia",
+      "current_level": "📊 Nivel {level} | XP: {xp}/{required_xp}",
+      "rank": "🏆 Rango #{rank} en el servidor"
+    },
+    
+    "welcome": {
+      "description": "Configurar mensajes de bienvenida",
+      "setup": "Configurar bienvenida",
+      "test": "Probar mensaje",
+      "enabled": "✅ ¡Sistema de bienvenida activado!",
+      "disabled": "❌ Sistema de bienvenida desactivado."
+    }
+  },
+  
+  "modules": {
+    "moderation": "Moderación",
+    "utility": "Utilidades",
+    "fun": "Diversión",
+    "music": "Música",
+    "leveling": "Sistema de Niveles",
+    "tickets": "Tickets",
+    "suggestions": "Sugerencias",
+    "welcome": "Bienvenida",
+    "logs": "Registros"
+  },
+  
+  "permissions": {
+    "administrator": "Administrador",
+    "manage_guild": "Gestionar Servidor",
+    "manage_roles": "Gestionar Roles",
+    "manage_channels": "Gestionar Canales",
+    "kick_members": "Expulsar Miembros",
+    "ban_members": "Banear Miembros",
+    "manage_messages": "Gestionar Mensajes",
+    "moderate_members": "Moderar Miembros"
+  }
+}
